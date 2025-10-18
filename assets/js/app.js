@@ -198,7 +198,7 @@ async function initCounters(prefersReducedMotion) {
 }
 
 function animateCount(element, target) {
-  const duration = 1400;
+  const duration = 2200;
   const start = performance.now();
   const initial = 0;
 
