@@ -499,9 +499,23 @@ footer .footer-counters {
 }
 
 footer .footer-counters .counter-list {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  justify-items: center;
-  max-width: min(640px, 100%);
+  justify-content: center;
+  max-width: min(820px, 100%);
+  margin-inline: auto;
+}
+
+footer .footer-counters .counter-list .counter {
+  flex: 1 1 160px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.65rem;
+}
+
+footer .footer-counters .counter-list .counter .dot {
   margin-inline: auto;
 }
 
@@ -647,7 +661,7 @@ form.contact-form textarea:focus {
 }
 
 .page-header p {
-  max-width: 60ch;
+  max-width: min(72ch, 100%);
   font-size: 1.05rem;
   color: rgba(245, 247, 251, 0.78);
 }
