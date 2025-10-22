@@ -44,7 +44,7 @@ function initMobileNav() {
     previousFocusedElement = document.activeElement;
     mobileNav.classList.add('open');
     navToggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('is-nav-open');
     const firstFocusable = mobileNav.querySelector(focusableSelectors);
     firstFocusable?.focus();
     mobileNav.addEventListener('keydown', handleTrap);
@@ -53,7 +53,7 @@ function initMobileNav() {
   const closeNav = () => {
     mobileNav.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    document.body.classList.remove('is-nav-open');
     mobileNav.removeEventListener('keydown', handleTrap);
     previousFocusedElement?.focus();
   };
