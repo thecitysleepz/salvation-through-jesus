@@ -13,9 +13,102 @@
   <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Cdefs%3E%3CradialGradient id='g' cx='34%25' cy='32%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23D6B76F' stop-opacity='0.85'/%3E%3Cstop offset='60%25' stop-color='%230E1B2E' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%230E1B2E' stop-opacity='1'/%3E%3C/defs%3E%3Crect width='1200' height='630' fill='%230B1526'/%3E%3Ccircle cx='360' cy='220' r='320' fill='url(%23g)'/%3E%3Cpath fill='%23D6B76F' d='M570 140c0-13 11-24 24-24h12c13 0 24 11 24 24v168h168c13 0 24 11 24 24v12c0 13-11 24-24 24H630v216c0 13-11 24-24 24h-12c-13 0-24-11-24-24V368H402c-13 0-24-11-24-24v-12c0-13 11-24 24-24h168V140z'/%3E%3C/svg%3E" />
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
   <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Shopify Buy Button styles -->
+  <style>
+    .shopify-products-section {
+      margin-top: var(--gutter-block);
+      padding: clamp(2.5rem, 5vw, 4rem);
+      background: rgba(14, 27, 46, 0.82);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(191, 215, 255, 0.08);
+      box-shadow: var(--shadow-card);
+    }
+
+    .shopify-products-section h2 {
+      font-family: 'Fraunces', 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--gold);
+    }
+
+    .shopify-products-section p {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: rgba(245, 247, 251, 0.82);
+      max-width: 60ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .shopify-embed-container {
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* Style the Shopify Buy Button components when they load */
+    .shopify-buy__collection {
+      margin: 0 auto !important;
+    }
+
+    .shopify-buy__product {
+      background: rgba(14, 27, 46, 0.6) !important;
+      border: 1px solid rgba(191, 215, 255, 0.1) !important;
+      border-radius: var(--radius-sm) !important;
+    }
+
+    .shopify-buy__btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-700)) !important;
+      color: var(--ink-900) !important;
+      border-radius: 999px !important;
+      font-weight: 600 !important;
+      transition: transform var(--transition) !important;
+    }
+
+    .shopify-buy__btn:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 0 28px rgba(214, 183, 111, 0.6) !important;
+    }
+
+    .placeholder-message {
+      text-align: center;
+      padding: 3rem;
+      background: rgba(191, 215, 255, 0.05);
+      border-radius: var(--radius-sm);
+      border: 2px dashed rgba(191, 215, 255, 0.2);
+    }
+
+    .placeholder-message h3 {
+      font-family: 'Fraunces', 'Times New Roman', serif;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .placeholder-message ol {
+      text-align: left;
+      max-width: 50ch;
+      margin: 1.5rem auto;
+      line-height: 1.8;
+    }
+
+    .placeholder-message code {
+      background: rgba(14, 27, 46, 0.8);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: var(--gold);
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="navbar">
       <a class="brand" href="/">
@@ -53,31 +146,207 @@
       <p>Every purchase you make in our store fuels boots-on-the-ground ministry. One hundred percent of the proceeds go directly to meals, care packages, and reunification efforts for people experiencing homelessness.</p>
     </section>
 
+    <!-- SHOPIFY PRODUCTS SECTION -->
     <section class="section container reveal-up">
-      <div class="simple-page">
-        <h2>Where Your Dollars Go</h2>
-        <p>Your support through the store keeps our outreach stocked and ready. When you pick up a hoodie or tee, you are providing tangible care and a reminder of Christ’s love to someone on the streets.</p>
-        <ul class="simple-list">
-          <li><strong>Hot meals &amp; meal kits:</strong> nourishing food, water, and scripture notes that open the door to prayer.</li>
-          <li><strong>Family reunification:</strong> transportation, phone access, and follow-up support to reconnect loved ones.</li>
-          <li><strong>Care on cold nights:</strong> emergency blankets, hygiene essentials, and discipleship resources packed with every outing.</li>
-        </ul>
-        <p>We steward every dollar to cover supplies for outreach nights, fuel for our volunteers, and the tools we need to pray, serve, and help people take steps toward home.</p>
-        <div class="btn-group">
-          <a class="btn btn-gold" href="https://salvationthroughjesus.myshopify.com/" target="_blank" rel="noopener">Visit the Shopify Store</a>
+      <div class="shopify-products-section">
+        <h2>Our Apparel</h2>
+        <p>Wear the mission. Every hoodie and t-shirt purchased directly funds street outreach, meals, and family reunions.</p>
+
+        <div id="shopify-embed-container" class="shopify-embed-container">
+          <!-- Shopify Buy Button Code -->
+          <div id='collection-component-1769125421449'></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'gghz1c-16.myshopify.com',
+      storefrontAccessToken: 'a7e6e0dcf7a0b2e3e5f8c9d1a2b3c4d5',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('collection', {
+        id: '495836881193',
+        node: document.getElementById('collection-component-1769125421449'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+  "product": {
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "calc(25% - 20px)",
+          "margin-left": "20px",
+          "margin-bottom": "50px",
+          "width": "calc(25% - 20px)"
+        },
+        "img": {
+          "height": "calc(100% - 15px)",
+          "position": "absolute",
+          "left": "0",
+          "right": "0",
+          "top": "0"
+        },
+        "imgWrapper": {
+          "padding-top": "calc(75% + 15px)",
+          "position": "relative",
+          "height": "0"
+        }
+      },
+      "button": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-size": "15px",
+        "padding-top": "15px",
+        "padding-bottom": "15px",
+        ":hover": {
+          "background-color": "#c1a564"
+        },
+        "background-color": "#d6b76f",
+        ":focus": {
+          "background-color": "#c1a564"
+        },
+        "border-radius": "40px"
+      }
+    },
+    "text": {
+      "button": "Add to cart"
+    }
+  },
+  "productSet": {
+    "styles": {
+      "products": {
+        "@media (min-width: 601px)": {
+          "margin-left": "-20px"
+        }
+      }
+    }
+  },
+  "modalProduct": {
+    "contents": {
+      "img": false,
+      "imgWithCarousel": true,
+      "button": false,
+      "buttonWithQuantity": true
+    },
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "100%",
+          "margin-left": "0px",
+          "margin-bottom": "0px"
+        }
+      },
+      "button": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-size": "15px",
+        "padding-top": "15px",
+        "padding-bottom": "15px",
+        ":hover": {
+          "background-color": "#c1a564"
+        },
+        "background-color": "#d6b76f",
+        ":focus": {
+          "background-color": "#c1a564"
+        },
+        "border-radius": "40px"
+      }
+    },
+    "text": {
+      "button": "Add to cart"
+    }
+  },
+  "option": {},
+  "cart": {
+    "styles": {
+      "button": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-size": "15px",
+        "padding-top": "15px",
+        "padding-bottom": "15px",
+        ":hover": {
+          "background-color": "#c1a564"
+        },
+        "background-color": "#d6b76f",
+        ":focus": {
+          "background-color": "#c1a564"
+        },
+        "border-radius": "40px"
+      }
+    },
+    "text": {
+      "total": "Subtotal",
+      "button": "Checkout"
+    }
+  },
+  "toggle": {
+    "styles": {
+      "toggle": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "background-color": "#d6b76f",
+        ":hover": {
+          "background-color": "#c1a564"
+        },
+        ":focus": {
+          "background-color": "#c1a564"
+        }
+      }
+    }
+  }
+},
+      });
+    });
+  }
+})();
+/*]]>*/
+</script>
+          <!-- End Shopify Buy Button Code -->
         </div>
       </div>
     </section>
 
+    <!-- Impact Section -->
+    <section class="section container reveal-up">
+      <div class="simple-page">
+        <h2>Where Your Dollars Go</h2>
+        <p>Your support through the store keeps our outreach stocked and ready. When you pick up a hoodie or tee, you are providing tangible care and a reminder of Christ's love to someone on the streets.</p>
+
+        <ul class="simple-list">
+          <li><strong>Hot meals & meal kits:</strong> nourishing food, water, and scripture notes that open the door to prayer.</li>
+          <li><strong>Family reunification:</strong> transportation, phone access, and follow-up support to reconnect loved ones.</li>
+          <li><strong>Care on cold nights:</strong> emergency blankets, hygiene essentials, and discipleship resources packed with every outing.</li>
+        </ul>
+
+        <p>We steward every dollar to cover supplies for outreach nights, fuel for our volunteers, and the tools we need to pray, serve, and help people take steps toward home.</p>
+      </div>
+    </section>
+
+    <!-- Features -->
     <section class="section container features reveal-up">
       <article class="feature-card">
         <h3>Mission T-Shirts</h3>
         <p>Soft, durable tees that spark conversations about hope and remind you to pray for our friends on the street.</p>
       </article>
+
       <article class="feature-card">
         <h3>Warm Hoodies</h3>
-        <p>Cozy hoodies designed for chilly outreaches—perfect for layering as you serve and share Christ’s love.</p>
+        <p>Cozy hoodies designed for chilly outreaches—perfect for layering as you serve and share Christ's love.</p>
       </article>
+
       <article class="feature-card">
         <h3>Give the Gift of Hope</h3>
         <p>Purchase apparel for yourself or sponsor gear for someone in need. Either way, the mission moves forward.</p>
