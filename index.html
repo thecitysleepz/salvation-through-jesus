@@ -12,149 +12,239 @@
   <meta property="og:url" content="https://www.salvationthroughjesus.org/" />
   <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23D6B76F' stop-opacity='0.9'/%3E%3Cstop offset='60%25' stop-color='%230E1B2E' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%230E1B2E' stop-opacity='1'/%3E%3C/defs%3E%3Crect width='1200' height='630' fill='%230B1526'/%3E%3Ccircle cx='340' cy='220' r='320' fill='url(%23g)'/%3E%3Cpath fill='%23D6B76F' d='M570 140c0-13 11-24 24-24h12c13 0 24 11 24 24v168h168c13 0 24 11 24 24v12c0 13-11 24-24 24H630v216c0 13-11 24-24 24h-12c-13 0-24-11-24-24V368H402c-13 0-24-11-24-24v-12c0-13 11-24 24-24h168V140z'/%3E%3C/svg%3E" />
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="navbar">
-      <a class="brand" href="/">
-        <img src="/assets/img/logo.svg" alt="Salvation Through Jesus" width="44" height="44" />
-        <span>Salvation Through Jesus</span>
+
+  <!-- Floating Navigation -->
+  <header class="floating-header" data-floating-nav>
+    <div class="floating-navbar">
+      <a class="brand-minimal" href="/">
+        <img src="/assets/img/logo.svg" alt="Salvation Through Jesus" width="36" height="36" />
       </a>
-      <nav aria-label="Primary" class="nav-links">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/mission/">Mission</a>
-        <a class="nav-link" href="/action/">Action</a>
-        <a class="nav-link" href="/store/">Store</a>
-        <a class="nav-link" href="/donate/">Donate</a>
+      <nav aria-label="Primary" class="nav-links-minimal">
+        <a class="nav-link-float" href="/">Home</a>
+        <a class="nav-link-float" href="/mission/">Mission</a>
+        <a class="nav-link-float" href="/action/">Action</a>
+        <a class="nav-link-float" href="/store/">Store</a>
+        <a class="nav-link-float btn-donate-nav" href="/donate/">Donate</a>
       </nav>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <button class="nav-toggle-float" type="button" aria-expanded="false" aria-controls="mobile-menu">
         <span class="sr-only">Toggle navigation</span>
-        &#9776;
+        <span class="hamburger"></span>
       </button>
     </div>
   </header>
 
-  <div class="mobile-nav" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <div class="panel">
-      <button class="btn btn-ghost" type="button" data-close-nav>Close</button>
-      <a class="nav-link" href="/">Home</a>
-      <a class="nav-link" href="/mission/">Mission</a>
-      <a class="nav-link" href="/action/">Action</a>
-      <a class="nav-link" href="/store/">Store</a>
-      <a class="nav-link" href="/donate/">Donate</a>
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-modern" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-panel-modern">
+      <button class="btn-close-modern" type="button" data-close-nav>
+        <span class="sr-only">Close</span>
+        <span class="close-icon">×</span>
+      </button>
+      <nav class="mobile-nav-links">
+        <a class="mobile-nav-link" href="/">Home</a>
+        <a class="mobile-nav-link" href="/mission/">Mission</a>
+        <a class="mobile-nav-link" href="/action/">Action</a>
+        <a class="mobile-nav-link" href="/store/">Store</a>
+        <a class="mobile-nav-link mobile-nav-donate" href="/donate/">Donate</a>
+      </nav>
     </div>
   </div>
 
   <main id="main">
-    <section class="hero container reveal-up" data-parallax-hero>
-      <div class="hero-content">
-        <h1>Salvation Through Jesus</h1>
-        <p class="lead">One Meal. One Life. Through Jesus.</p>
-        <div class="btn-group">
-          <a class="btn btn-gold" href="/mission/">Our Mission</a>
+    <!-- DRAMATIC HERO SECTION -->
+    <section class="hero-dramatic" data-hero>
+      <div class="hero-image-wrap">
+        <img src="/assets/img/hero-rembrandt.jpg" alt="Christ Calming the Storm" class="hero-image" />
+        <div class="hero-overlay"></div>
+        <div class="hero-vignette"></div>
+      </div>
+
+      <div class="hero-content-dramatic">
+        <div class="hero-inner">
+          <h1 class="hero-title-dramatic">
+            <span class="hero-title-line">Salvation</span>
+            <span class="hero-title-line hero-title-emphasis">Through Jesus</span>
+          </h1>
+          <p class="hero-subtitle-dramatic">Calming the storm. One meal. One life. One prayer.</p>
+          <div class="hero-cta-group">
+            <a class="btn-hero-primary" href="/mission/">
+              <span>Our Mission</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="btn-hero-secondary" href="/donate/">Give Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-indicator">
+        <span class="scroll-text">Scroll to explore</span>
+        <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- IMPACT COUNTERS - ENHANCED -->
+    <section class="impact-section-enhanced" data-counter-container>
+      <div class="container-wide">
+        <div class="impact-header">
+          <h2 class="impact-title">Real Impact. Real Lives.</h2>
+          <p class="impact-subtitle">Every number represents a life touched by God's love</p>
+        </div>
+
+        <div class="impact-grid-modern">
+          <div class="impact-card-modern">
+            <div class="impact-card-inner">
+              <div class="impact-icon">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <path d="M20 5L25 15H35L27 23L30 33L20 27L10 33L13 23L5 15H15L20 5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <strong class="impact-number" data-counter-target="meals">0</strong>
+              <span class="impact-label">Meals Served</span>
+              <div class="impact-glow"></div>
+            </div>
+          </div>
+
+          <div class="impact-card-modern">
+            <div class="impact-card-inner">
+              <div class="impact-icon">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <path d="M20 35C28.2843 35 35 28.2843 35 20C35 11.7157 28.2843 5 20 5C11.7157 5 5 11.7157 5 20C5 28.2843 11.7157 35 20 35Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M15 20L18 23L25 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <strong class="impact-number" data-counter-target="families">0</strong>
+              <span class="impact-label">Families Reunited</span>
+              <div class="impact-glow"></div>
+            </div>
+          </div>
+
+          <div class="impact-card-modern">
+            <div class="impact-card-inner">
+              <div class="impact-icon">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <path d="M25 10H30C31.3261 10 32.5979 10.5268 33.5355 11.4645C34.4732 12.4021 35 13.6739 35 15V30C35 31.3261 34.4732 32.5979 33.5355 33.5355C32.5979 34.4732 31.3261 35 30 35H25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 30H10C8.67392 30 7.40215 29.4732 6.46447 28.5355C5.52678 27.5979 5 26.3261 5 25V10C5 8.67392 5.52678 7.40215 6.46447 6.46447C7.40215 5.52678 8.67392 5 10 5H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 20L20 15L25 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <strong class="impact-number" data-counter-target="calls">0</strong>
+              <span class="impact-label">Calls Made</span>
+              <div class="impact-glow"></div>
+            </div>
+          </div>
+
+          <div class="impact-card-modern">
+            <div class="impact-card-inner">
+              <div class="impact-icon">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <path d="M20 5L15 15L5 17L12.5 24L11 35L20 30L29 35L27.5 24L35 17L25 15L20 5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <strong class="impact-number" data-counter-target="prayers">0</strong>
+              <span class="impact-label">Prayers Shared</span>
+              <div class="impact-glow"></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="impact-updated" data-impact-updated>Last updated: –</p>
+      </div>
+    </section>
+
+    <!-- MISSION CARDS - GLASSMORPHISM -->
+    <section class="mission-cards-section">
+      <div class="container-wide">
+        <div class="bento-grid">
+          <article class="glass-card glass-card-large">
+            <div class="glass-card-content">
+              <h3 class="glass-card-title">Feed with Love</h3>
+              <p class="glass-card-text">Every meal is a message: you're seen, you're loved, you're not forgotten. Through hot food and warm conversation, we open doors to hope.</p>
+              <a href="/mission/" class="glass-card-link">Learn more →</a>
+            </div>
+            <div class="glass-card-glow"></div>
+          </article>
+
+          <article class="glass-card">
+            <div class="glass-card-content">
+              <h3 class="glass-card-title">Restore Connection</h3>
+              <p class="glass-card-text">A prayer, a phone call, a path home – one step at a time toward family and restoration.</p>
+              <a href="/action/" class="glass-card-link">Get involved →</a>
+            </div>
+            <div class="glass-card-glow"></div>
+          </article>
+
+          <article class="glass-card">
+            <div class="glass-card-content">
+              <h3 class="glass-card-title">Through Jesus</h3>
+              <p class="glass-card-text">Rescue is more than relief; it's renewal through Christ. We share the Gospel that transforms lives.</p>
+              <a href="/mission/" class="glass-card-link">Our faith →</a>
+            </div>
+            <div class="glass-card-glow"></div>
+          </article>
+
+          <article class="glass-card glass-card-cta">
+            <div class="glass-card-content">
+              <h3 class="glass-card-title glass-card-title-large">Join the Mission</h3>
+              <p class="glass-card-text">Every donation, every prayer, every act of service brings hope to the streets.</p>
+              <a href="/donate/" class="btn-glass-cta">Donate Now</a>
+            </div>
+            <div class="glass-card-glow glass-card-glow-gold"></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section container reveal-up">
-      <p>Salvation Through Jesus exists to reach those who are lost and suffering – especially people living on the streets – and meet them with food, prayer, and compassion. One meal can open the door to hope, to family, and to God.</p>
-    </section>
-
-    <section class="section container features reveal-up">
-      <article class="feature-card">
-        <h3>Feed with Love</h3>
-        <p>Every meal is a message: you’re seen, you’re loved, you’re not forgotten.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Restore Connection</h3>
-        <p>A prayer, a phone call, a path home – one step at a time.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Through Jesus</h3>
-        <p>Rescue is more than relief; it’s renewal through Christ.</p>
-      </article>
-    </section>
-
-    <section class="counter-strip container reveal-up" data-counter-container>
-      <div class="counter-list">
-        <div class="counter">
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <strong data-counter-target="meals">0</strong>
-            <span>Meals</span>
-          </div>
-        </div>
-        <div class="counter">
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <strong data-counter-target="families">0</strong>
-            <span>Families Reunited</span>
-          </div>
-        </div>
-        <div class="counter">
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <strong data-counter-target="calls">0</strong>
-            <span>Calls</span>
-          </div>
-        </div>
-        <div class="counter">
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <strong data-counter-target="prayers">0</strong>
-            <span>Prayers</span>
-          </div>
-        </div>
+    <!-- SCRIPTURE QUOTE - MODERN -->
+    <section class="scripture-modern">
+      <div class="container">
+        <blockquote class="scripture-quote">
+          <p>"The light shines in the darkness, and the darkness has not overcome it."</p>
+          <cite>— John 1:5</cite>
+        </blockquote>
       </div>
-      <div class="btn-group">
-        <a class="btn btn-gold" href="/action/">Join the Mission</a>
-      </div>
-      <p class="meta" data-impact-updated>Last updated: –</p>
-    </section>
-
-    <section class="quote-stripe container reveal-fade">
-      “The light shines in the darkness, and the darkness has not overcome it.” – John 1:5
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner" data-counter-container>
-      <div class="footer-counters">
-        <div class="counter-list">
-          <div class="counter">
-            <span class="dot" aria-hidden="true"></span>
-            <div>
-              <strong data-counter-target="meals">0</strong>
-              <span>Meals</span>
-            </div>
-          </div>
-          <div class="counter">
-            <span class="dot" aria-hidden="true"></span>
-            <div>
-              <strong data-counter-target="families">0</strong>
-              <span>Families Reunited</span>
-            </div>
-          </div>
-          <div class="counter">
-            <span class="dot" aria-hidden="true"></span>
-            <div>
-              <strong data-counter-target="calls">0</strong>
-              <span>Calls</span>
-            </div>
-          </div>
-          <div class="counter">
-            <span class="dot" aria-hidden="true"></span>
-            <div>
-              <strong data-counter-target="prayers">0</strong>
-              <span>Prayers</span>
-            </div>
-          </div>
-        </div>
-        <p class="footer-meta" data-impact-updated>Last updated: –</p>
+  <!-- MODERN FOOTER -->
+  <footer class="footer-modern">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.svg" alt="Salvation Through Jesus" width="48" height="48" />
+        <p class="footer-tagline">Calming the storm. One life at a time.</p>
       </div>
-      <p class="memorial">In loving memory of Devin. Your life calls us to love without hesitation.</p>
+
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>Navigate</h4>
+          <a href="/">Home</a>
+          <a href="/mission/">Mission</a>
+          <a href="/action/">Action</a>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <a href="/store/">Store</a>
+          <a href="/donate/">Donate</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-memorial">
+      <p>In loving memory of Devin. Your life calls us to love without hesitation.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Salvation Through Jesus. All rights reserved.</p>
     </div>
   </footer>
 

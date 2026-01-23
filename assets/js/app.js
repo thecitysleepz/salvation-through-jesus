@@ -9,7 +9,7 @@ const focusableSelectors = [
 
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const navLinks = document.querySelectorAll('a.nav-link');
+  const navLinks = document.querySelectorAll('a.nav-link-float');
   const currentPath = window.location.pathname.replace(/index\.html$/, '');
 
   navLinks.forEach((link) => {
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initMobileNav() {
-  const navToggle = document.querySelector('.nav-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
+  const navToggle = document.querySelector('.nav-toggle-float');
+  const mobileNav = document.querySelector('.mobile-nav-modern');
   if (!navToggle || !mobileNav) return;
 
   let previousFocusedElement = null;
@@ -42,7 +42,7 @@ function initMobileNav() {
 
   const openNav = () => {
     previousFocusedElement = document.activeElement;
-    mobileNav.classList.add('open');
+    mobileNav.classList.add('active');
     navToggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('is-nav-open');
     const firstFocusable = mobileNav.querySelector(focusableSelectors);
@@ -51,7 +51,7 @@ function initMobileNav() {
   };
 
   const closeNav = () => {
-    mobileNav.classList.remove('open');
+    mobileNav.classList.remove('active');
     navToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('is-nav-open');
     mobileNav.removeEventListener('keydown', handleTrap);
@@ -81,7 +81,7 @@ function initMobileNav() {
   };
 
   navToggle.addEventListener('click', () => {
-    const isOpen = mobileNav.classList.contains('open');
+    const isOpen = mobileNav.classList.contains('active');
     if (isOpen) {
       closeNav();
     } else {
