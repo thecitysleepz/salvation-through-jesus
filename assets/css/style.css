@@ -49,9 +49,7 @@ html {
 body {
   margin: 0;
   font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at 20% 20%, rgba(58, 77, 103, 0.4), transparent 45%),
-    radial-gradient(circle at 78% 12%, rgba(214, 183, 111, 0.22), transparent 42%),
-    linear-gradient(180deg, var(--ink-900), var(--ink));
+  background: lime;
   color: var(--paper);
   min-height: 100vh;
 }
