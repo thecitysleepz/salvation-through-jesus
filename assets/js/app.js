@@ -189,7 +189,7 @@ async function initCounters(prefersReducedMotion) {
           obs.disconnect();
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.5 });
 
     counterContainers.forEach((container) => observer.observe(container));
   } catch (error) {
@@ -198,7 +198,7 @@ async function initCounters(prefersReducedMotion) {
 }
 
 function animateCount(element, target) {
-  const duration = 2200;
+  const duration = 3000;
   const start = performance.now();
   const initial = 0;
 
