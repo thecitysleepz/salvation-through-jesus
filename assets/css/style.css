@@ -495,11 +495,16 @@ li {
   z-index: 10;
   text-align: center;
   padding: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-inner {
   max-width: 900px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .hero-title-dramatic {
