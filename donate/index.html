@@ -12,41 +12,48 @@
   <meta property="og:url" content="https://www.salvationthroughjesus.org/donate/" />
   <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Cdefs%3E%3CradialGradient id='g' cx='34%25' cy='32%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23D6B76F' stop-opacity='0.88'/%3E%3Cstop offset='60%25' stop-color='%230E1B2E' stop-opacity='0.22'/%3E%3Cstop offset='100%25' stop-color='%230E1B2E' stop-opacity='1'/%3E%3C/defs%3E%3Crect width='1200' height='630' fill='%230B1526'/%3E%3Ccircle cx='400' cy='230' r='320' fill='url(%23g)'/%3E%3Cpath fill='%23D6B76F' d='M570 140c0-13 11-24 24-24h12c13 0 24 11 24 24v168h168c13 0 24 11 24 24v12c0 13-11 24-24 24H630v216c0 13-11 24-24 24h-12c-13 0-24-11-24-24V368H402c-13 0-24-11-24-24v-12c0-13 11-24 24-24h168V140z'/%3E%3C/svg%3E" />
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="navbar">
-      <a class="brand" href="/">
-        <img src="/assets/img/logo.svg" alt="Salvation Through Jesus" width="44" height="44" />
-        <span>Salvation Through Jesus</span>
+
+  <!-- Floating Navigation -->
+  <header class="floating-header" data-floating-nav>
+    <div class="floating-navbar">
+      <a class="brand-minimal" href="/">
+        <img src="/assets/img/logo.svg" alt="Salvation Through Jesus" width="36" height="36" />
       </a>
-      <nav aria-label="Primary" class="nav-links">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/mission/">Mission</a>
-        <a class="nav-link" href="/action/">Action</a>
-        <a class="nav-link" href="/store/">Store</a>
-        <a class="nav-link" href="/donate/">Donate</a>
+      <nav aria-label="Primary" class="nav-links-minimal">
+        <a class="nav-link-float" href="/">Home</a>
+        <a class="nav-link-float" href="/mission/">Mission</a>
+        <a class="nav-link-float" href="/action/">Action</a>
+        <a class="nav-link-float" href="/store/">Store</a>
+        <a class="nav-link-float btn-donate-nav" href="/donate/">Donate</a>
       </nav>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <button class="nav-toggle-float" type="button" aria-expanded="false" aria-controls="mobile-menu">
         <span class="sr-only">Toggle navigation</span>
-        &#9776;
+        <span class="hamburger"></span>
       </button>
     </div>
   </header>
 
-  <div class="mobile-nav" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <div class="panel">
-      <button class="btn btn-ghost" type="button" data-close-nav>Close</button>
-      <a class="nav-link" href="/">Home</a>
-      <a class="nav-link" href="/mission/">Mission</a>
-      <a class="nav-link" href="/action/">Action</a>
-      <a class="nav-link" href="/store/">Store</a>
-      <a class="nav-link" href="/donate/">Donate</a>
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-modern" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-panel-modern">
+      <button class="btn-close-modern" type="button" data-close-nav>
+        <span class="sr-only">Close</span>
+        <span class="close-icon">×</span>
+      </button>
+      <nav class="mobile-nav-links">
+        <a class="mobile-nav-link" href="/">Home</a>
+        <a class="mobile-nav-link" href="/mission/">Mission</a>
+        <a class="mobile-nav-link" href="/action/">Action</a>
+        <a class="mobile-nav-link" href="/store/">Store</a>
+        <a class="mobile-nav-link mobile-nav-donate" href="/donate/">Donate</a>
+      </nav>
     </div>
   </div>
-
   <main id="main">
     <section class="container page-header reveal-up">
       <h1>Give Hope. Change Lives.</h1>
@@ -60,46 +67,21 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner" data-counter-container>
-      <div class="footer-counters">
-        <div class="counter-list">
-          <div class="counter">
-            <span class="dot" aria-hidden="true"></span>
-            <div>
-              <strong data-counter-target="meals">0</strong>
-              <span>Meals</span>
-            </div>
-          </div>
-          <div class="counter">
-            <span class="dot" aria-hidden="true"></span>
-            <div>
-              <strong data-counter-target="families">0</strong>
-              <span>Families Reunited</span>
-            </div>
-          </div>
-          <div class="counter">
-            <span class="dot" aria-hidden="true"></span>
-            <div>
-              <strong data-counter-target="calls">0</strong>
-              <span>Calls</span>
-            </div>
-          </div>
-          <div class="counter">
-            <span class="dot" aria-hidden="true"></span>
-            <div>
-              <strong data-counter-target="prayers">0</strong>
-              <span>Prayers</span>
-            </div>
-          </div>
-        </div>
-        <p class="footer-meta" data-impact-updated>Last updated: –</p>
+  <footer class="footer-modern">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.svg" alt="Salvation Through Jesus" width="48" height="48" />
+        <p class="footer-tagline">Calming the storm. One life at a time.</p>
       </div>
     </div>
+
     <div class="footer-memorial">
       <p>In loving memory of Devin. Your life calls us to love without hesitation.</p>
     </div>
 
+    <div class="footer-bottom">
+      <p>&copy; 2026 Salvation Through Jesus. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="/assets/js/app.js" defer></script>
