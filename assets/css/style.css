@@ -465,7 +465,8 @@ img {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
   animation: fade-up 1s ease-out;
 }
