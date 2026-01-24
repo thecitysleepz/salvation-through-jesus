@@ -727,10 +727,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1;
+  color: var(--gold);
   transition: transform var(--transition);
-  filter: grayscale(30%) brightness(1.1);
+}
+
+.impact-icon i {
+  display: block;
 }
 
 .impact-card-modern:hover .impact-icon {
