@@ -1218,7 +1218,7 @@ li {
    DONATE PAGE
    ======================================== */
 .donate-hero {
-  padding: calc(var(--gutter-block) + 60px) 0 var(--gutter-block);
+  padding: calc(var(--gutter-block) + 60px) 0 3rem;
   background: linear-gradient(
     135deg,
     rgba(11, 21, 38, 0.95) 0%,
@@ -1230,16 +1230,34 @@ li {
 .donate-hero h1 {
   color: var(--gold);
   margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.donate-hero p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .donate-content {
-  padding: var(--gutter-block) 0;
+  padding: 4rem 0;
   background: rgba(14, 27, 46, 0.7);
+}
+
+.donate-content > .container > p {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .donate-options {
   max-width: 900px;
-  margin: 3rem auto;
+  margin: 0 auto;
   padding: 3rem;
   background: rgba(14, 27, 46, 0.6);
   border: 1px solid rgba(214, 183, 111, 0.2);
@@ -1249,15 +1267,22 @@ li {
 
 .donate-options h3 {
   color: var(--gold);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.donate-options > p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
 }
 
 .donate-buttons {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 400px;
-  margin: 2rem auto;
+  max-width: 450px;
+  margin: 0 auto 2rem;
 }
 
 .donate-btn {
@@ -1291,6 +1316,32 @@ li {
   background: rgba(255, 255, 255, 0.15);
   border-color: var(--gold);
   color: var(--gold);
+}
+
+.donate-content h2 {
+  color: var(--gold);
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.donate-content ul {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding-left: 2rem;
+}
+
+.donate-content li {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.donate-content li strong {
+  color: var(--gold);
+  font-weight: 600;
 }
 
 /* ========================================
