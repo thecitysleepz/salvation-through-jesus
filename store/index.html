@@ -1,112 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Last Updated: January 23, 2026 - Shopify Buy Button Integration -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Store | Salvation Through Jesus</title>
   <meta name="description" content="Shop Salvation Through Jesus apparel. Every dollar funds meals, prayer outreach, and reunions for families on the streets." />
   <link rel="canonical" href="https://www.salvationthroughjesus.org/store/" />
-  <meta property="og:title" content="Store | Salvation Through Jesus" />
-  <meta property="og:description" content="Every purchase fuels meals, reunions, and prayer on the streets." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.salvationthroughjesus.org/store/" />
-  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Cdefs%3E%3CradialGradient id='g' cx='34%25' cy='32%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23D6B76F' stop-opacity='0.85'/%3E%3Cstop offset='60%25' stop-color='%230E1B2E' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%230E1B2E' stop-opacity='1'/%3E%3C/defs%3E%3Crect width='1200' height='630' fill='%230B1526'/%3E%3Ccircle cx='360' cy='220' r='320' fill='url(%23g)'/%3E%3Cpath fill='%23D6B76F' d='M570 140c0-13 11-24 24-24h12c13 0 24 11 24 24v168h168c13 0 24 11 24 24v12c0 13-11 24-24 24H630v216c0 13-11 24-24 24h-12c-13 0-24-11-24-24V368H402c-13 0-24-11-24-24v-12c0-13 11-24 24-24h168V140z'/%3E%3C/svg%3E" />
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/assets/css/style.css" />
-
-  <!-- Shopify Buy Button styles -->
-  <style>
-    .shopify-products-section {
-      margin-top: var(--gutter-block);
-      padding: clamp(2.5rem, 5vw, 4rem);
-      background: rgba(14, 27, 46, 0.82);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(191, 215, 255, 0.08);
-      box-shadow: var(--shadow-card);
-    }
-
-    .shopify-products-section h2 {
-      font-family: 'Fraunces', 'Times New Roman', serif;
-      font-weight: 700;
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: var(--gold);
-    }
-
-    .shopify-products-section p {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      color: rgba(245, 247, 251, 0.82);
-      max-width: 60ch;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .shopify-embed-container {
-      min-height: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    /* Style the Shopify Buy Button components when they load */
-    .shopify-buy__collection {
-      margin: 0 auto !important;
-    }
-
-    .shopify-buy__product {
-      background: rgba(14, 27, 46, 0.6) !important;
-      border: 1px solid rgba(191, 215, 255, 0.1) !important;
-      border-radius: var(--radius-sm) !important;
-    }
-
-    .shopify-buy__btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold-700)) !important;
-      color: var(--ink-900) !important;
-      border-radius: 999px !important;
-      font-weight: 600 !important;
-      transition: transform var(--transition) !important;
-    }
-
-    .shopify-buy__btn:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 0 28px rgba(214, 183, 111, 0.6) !important;
-    }
-
-    .placeholder-message {
-      text-align: center;
-      padding: 3rem;
-      background: rgba(191, 215, 255, 0.05);
-      border-radius: var(--radius-sm);
-      border: 2px dashed rgba(191, 215, 255, 0.2);
-    }
-
-    .placeholder-message h3 {
-      font-family: 'Fraunces', 'Times New Roman', serif;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .placeholder-message ol {
-      text-align: left;
-      max-width: 50ch;
-      margin: 1.5rem auto;
-      line-height: 1.8;
-    }
-
-    .placeholder-message code {
-      background: rgba(14, 27, 46, 0.8);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      color: var(--gold);
-      font-size: 0.9em;
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -147,46 +49,43 @@
       </nav>
     </div>
   </div>
+
   <main id="main">
-    <section class="container page-header reveal-up">
-      <h1>Shop the Mission</h1>
-      <p>Every purchase you make in our store fuels boots-on-the-ground ministry. One hundred percent of the proceeds go directly to meals, care packages, and reunification efforts for people experiencing homelessness.</p>
+    <!-- Store Hero -->
+    <section class="store-hero">
+      <div class="container">
+        <h1>Our Apparel</h1>
+        <p>Wear the mission. Every hoodie and t-shirt purchased directly funds street outreach, meals, and family reunions.</p>
+      </div>
     </section>
 
-    <!-- SHOPIFY PRODUCTS SECTION -->
-    <section class="section container reveal-up">
-      <div class="shopify-products-section">
-        <h2>Our Apparel</h2>
-        <p>Wear the mission. Every hoodie and t-shirt purchased directly funds street outreach, meals, and family reunions.</p>
-
-        <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+    <!-- Products -->
+    <section class="content-section">
+      <div class="container">
+        <div class="products-grid">
 
           <!-- Product 1: Yes. Hoodie -->
-          <div class="product-card" style="background: rgba(14, 27, 46, 0.6); border: 1px solid rgba(214, 183, 111, 0.2); border-radius: 12px; padding: 2rem; text-align: center; transition: transform 0.3s;">
+          <div class="product-card">
             <img src="https://gghz1c-16.myshopify.com/cdn/shop/files/mock-up-of-a-ghosted-hoodie-featuring-a-black-on-black-design-32890.png?v=1737591831&width=500"
                  alt="Yes. Hoodie"
-                 style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem;">
-            <h3 style="color: var(--gold); font-size: 1.5rem; margin-bottom: 0.5rem;">Yes. Hoodie</h3>
-            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Black hoodie with gold "YES." print</p>
-            <p style="color: var(--gold); font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">$47.78</p>
-            <a href="https://gghz1c-16.myshopify.com/products/yes-hoodie"
-               target="_blank"
-               style="display: inline-block; background: linear-gradient(135deg, var(--gold), #c1a564); color: #0B1526; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.2s;">
+                 loading="lazy">
+            <h3>Yes. Hoodie</h3>
+            <p>Black hoodie with gold "YES." print</p>
+            <span class="price">$47.78</span>
+            <a href="https://gghz1c-16.myshopify.com/products/yes-hoodie" target="_blank" rel="noopener noreferrer" class="shop-btn">
               Shop Now →
             </a>
           </div>
 
-          <!-- Product 2: Peace in the Storm T-Shirt -->
-          <div class="product-card" style="background: rgba(14, 27, 46, 0.6); border: 1px solid rgba(214, 183, 111, 0.2); border-radius: 12px; padding: 2rem; text-align: center; transition: transform 0.3s;">
+          <!-- Product 2: Peace in the Storm -->
+          <div class="product-card">
             <img src="https://gghz1c-16.myshopify.com/cdn/shop/files/mockup-of-a-t-shirt-featuring-a-fine-art-painting-46615.png?v=1737591869&width=500"
                  alt="Peace in the Storm T-Shirt"
-                 style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem;">
-            <h3 style="color: var(--gold); font-size: 1.5rem; margin-bottom: 0.5rem;">Peace in the Storm</h3>
-            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Rembrandt artwork t-shirt</p>
-            <p style="color: var(--gold); font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">$27.78</p>
-            <a href="https://gghz1c-16.myshopify.com/products/peace-in-the-storm"
-               target="_blank"
-               style="display: inline-block; background: linear-gradient(135deg, var(--gold), #c1a564); color: #0B1526; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.2s;">
+                 loading="lazy">
+            <h3>Peace in the Storm</h3>
+            <p>Rembrandt artwork t-shirt</p>
+            <span class="price">$27.78</span>
+            <a href="https://gghz1c-16.myshopify.com/products/peace-in-the-storm" target="_blank" rel="noopener noreferrer" class="shop-btn">
               Shop Now →
             </a>
           </div>
@@ -196,12 +95,12 @@
     </section>
 
     <!-- Impact Section -->
-    <section class="section container reveal-up">
-      <div class="simple-page">
+    <section class="store-impact">
+      <div class="container">
         <h2>Where Your Dollars Go</h2>
         <p>Your support through the store keeps our outreach stocked and ready. When you pick up a hoodie or tee, you are providing tangible care and a reminder of Christ's love to someone on the streets.</p>
 
-        <ul class="simple-list">
+        <ul>
           <li><strong>Hot meals & meal kits:</strong> nourishing food, water, and scripture notes that open the door to prayer.</li>
           <li><strong>Family reunification:</strong> transportation, phone access, and follow-up support to reconnect loved ones.</li>
           <li><strong>Care on cold nights:</strong> emergency blankets, hygiene essentials, and discipleship resources packed with every outing.</li>
@@ -209,24 +108,6 @@
 
         <p>We steward every dollar to cover supplies for outreach nights, fuel for our volunteers, and the tools we need to pray, serve, and help people take steps toward home.</p>
       </div>
-    </section>
-
-    <!-- Features -->
-    <section class="section container features reveal-up">
-      <article class="feature-card">
-        <h3>Mission T-Shirts</h3>
-        <p>Soft, durable tees that spark conversations about hope and remind you to pray for our friends on the street.</p>
-      </article>
-
-      <article class="feature-card">
-        <h3>Warm Hoodies</h3>
-        <p>Cozy hoodies designed for chilly outreaches—perfect for layering as you serve and share Christ's love.</p>
-      </article>
-
-      <article class="feature-card">
-        <h3>Give the Gift of Hope</h3>
-        <p>Purchase apparel for yourself or sponsor gear for someone in need. Either way, the mission moves forward.</p>
-      </article>
     </section>
   </main>
 
