@@ -437,8 +437,8 @@ li {
    ======================================== */
 .hero-dramatic {
   position: relative;
-  min-height: 70vh;
-  max-height: 70vh;
+  min-height: 85vh;
+  max-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -643,25 +643,28 @@ li {
 
 .impact-header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
 }
 
 .impact-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   background: linear-gradient(135deg, var(--paper), var(--gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 
 .impact-subtitle {
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 .impact-grid-modern {
@@ -753,6 +756,181 @@ li {
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.85rem;
   margin-top: 2rem;
+}
+
+/* ========================================
+   SCRIPTURE SECTION
+   ======================================== */
+.scripture-modern {
+  padding: var(--gutter-block) 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 21, 38, 0.7) 0%,
+    rgba(14, 27, 46, 0.85) 100%
+  );
+}
+
+.scripture-quote {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-lg);
+  background: rgba(14, 27, 46, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.scripture-quote p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+}
+
+.scripture-quote cite {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+/* ========================================
+   GLASSMORPHISM CARDS
+   ======================================== */
+.mission-cards-section {
+  padding: var(--gutter-block) 0;
+  background: radial-gradient(circle at center, rgba(14, 27, 46, 0.4), rgba(11, 21, 38, 0.8));
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  grid-auto-flow: dense;
+}
+
+@media (min-width: 768px) {
+  .glass-card-large {
+    grid-column: span 2;
+  }
+}
+
+.glass-card {
+  position: relative;
+  background: rgba(14, 27, 46, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  transition: all var(--transition);
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(214, 183, 111, 0.1), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(214, 183, 111, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--gold);
+}
+
+.glass-card-title-large {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.glass-card-text {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.glass-card-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  font-size: 1rem;
+}
+
+.glass-card-link:hover {
+  transform: translateX(5px);
+  text-decoration: none;
+}
+
+.glass-card-cta {
+  background: rgba(214, 183, 111, 0.1);
+  border-color: var(--gold);
+}
+
+.btn-glass-cta {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-700));
+  color: var(--ink-900);
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all var(--transition);
+  box-shadow: 0 10px 30px rgba(214, 183, 111, 0.3);
+}
+
+.btn-glass-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(214, 183, 111, 0.5);
+  text-decoration: none;
+}
+
+.glass-card-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  pointer-events: none;
+}
+
+.glass-card:hover .glass-card-glow {
+  opacity: 1;
+}
+
+.glass-card-glow-gold {
+  background: radial-gradient(circle, var(--gold-glow), transparent 50%);
 }
 
 /* ========================================
@@ -1154,12 +1332,20 @@ li {
    ======================================== */
 @media (max-width: 767px) {
   .hero-dramatic {
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 75vh;
+    max-height: 75vh;
   }
 
   .hero-title-dramatic {
     font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-card-large {
+    grid-column: span 1;
   }
 
   .hero-cta-group {
