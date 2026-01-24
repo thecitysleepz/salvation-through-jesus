@@ -1078,13 +1078,32 @@ li {
   text-align: center;
   color: var(--gold);
   margin-bottom: 2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 .store-impact p {
-  text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 2rem;
   color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.store-impact ul {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding-left: 2rem;
+}
+
+.store-impact li {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.store-impact li strong {
+  color: var(--gold);
 }
 
 /* ========================================
