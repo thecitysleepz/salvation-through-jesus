@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Give Hope | Salvation Through Jesus</title>
-  <meta name="description" content="Give to Salvation Through Jesus. Your generosity fuels meals, outreach, and reunions that bring people home through Christ." />
-  <link rel="canonical" href="https://www.salvationthroughjesus.org/donate/" />
-  <meta property="og:title" content="Give Hope | Salvation Through Jesus" />
-  <meta property="og:description" content="Every gift supports meals, outreach, and the work of redemption." />
+  <title>Page Not Found | Salvation Through Jesus</title>
+  <meta name="description" content="We can’t find that page yet. Return to Salvation Through Jesus to discover hope-filled stories and ways to serve." />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://www.salvationthroughjesus.org/404" />
+  <meta property="og:title" content="Page Not Found" />
+  <meta property="og:description" content="We can’t find that page yet." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.salvationthroughjesus.org/donate/" />
-  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Cdefs%3E%3CradialGradient id='g' cx='34%25' cy='32%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23D6B76F' stop-opacity='0.88'/%3E%3Cstop offset='60%25' stop-color='%230E1B2E' stop-opacity='0.22'/%3E%3Cstop offset='100%25' stop-color='%230E1B2E' stop-opacity='1'/%3E%3C/defs%3E%3Crect width='1200' height='630' fill='%230B1526'/%3E%3Ccircle cx='400' cy='230' r='320' fill='url(%23g)'/%3E%3Cpath fill='%23D6B76F' d='M570 140c0-13 11-24 24-24h12c13 0 24 11 24 24v168h168c13 0 24 11 24 24v12c0 13-11 24-24 24H630v216c0 13-11 24-24 24h-12c-13 0-24-11-24-24V368H402c-13 0-24-11-24-24v-12c0-13 11-24 24-24h168V140z'/%3E%3C/svg%3E" />
+  <meta property="og:url" content="https://www.salvationthroughjesus.org/404" />
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Cdefs%3E%3CradialGradient id='g' cx='36%25' cy='34%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23D6B76F' stop-opacity='0.8'/%3E%3Cstop offset='55%25' stop-color='%230E1B2E' stop-opacity='0.25'/%3E%3Cstop offset='100%25' stop-color='%230E1B2E' stop-opacity='1'/%3E%3C/defs%3E%3Crect width='1200' height='630' fill='%230B1526'/%3E%3Ccircle cx='380' cy='230' r='320' fill='url(%23g)'/%3E%3Cpath fill='%23D6B76F' d='M570 140c0-13 11-24 24-24h12c13 0 24 11 24 24v168h168c13 0 24 11 24 24v12c0 13-11 24-24 24H630v216c0 13-11 24-24 24h-12c-13 0-24-11-24-24V368H402c-13 0-24-11-24-24v-12c0-13 11-24 24-24h168V140z'/%3E%3C/svg%3E" />
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
@@ -48,15 +49,16 @@
   </div>
 
   <main id="main">
-    <section class="container page-header reveal-up">
-      <h1>Give Hope. Change Lives.</h1>
-      <p>Every gift supports meals, outreach, and the work of helping people find their way back to God and family. Every dollar counts and every donation helps us reach one more person.</p>
-    </section>
-
-    <section class="simple-page container reveal-up">
-      <p>When you give, you fuel street outreach, care packages, and the faithful follow-up that reunites families and reconnects people to Christ. Thank you for partnering with us.</p>
-      <a class="btn btn-gold" href="#">Donate Now</a>
-      <small class="note">Online donations through Givebutter/Donorbox will be enabled soon. Until then, please reach out for giving options.</small>
+    <section class="simple-page container reveal-up not-found">
+      <h1>We can’t find that page yet.</h1>
+      <p>Please return to one of these pages to keep exploring the mission.</p>
+      <div class="btn-group" role="list">
+        <a class="btn btn-gold" href="/">Home</a>
+        <a class="btn btn-ghost" href="/mission/">Mission</a>
+        <a class="btn btn-ghost" href="/action/">Action</a>
+        <a class="btn btn-ghost" href="/store/">Store</a>
+        <a class="btn btn-ghost" href="/donate/">Donate</a>
+      </div>
     </section>
   </main>
 
@@ -96,10 +98,6 @@
         <p class="footer-meta" data-impact-updated>Last updated: –</p>
       </div>
     </div>
-    <div class="footer-memorial">
-      <p>In loving memory of Devin. Your life calls us to love without hesitation.</p>
-    </div>
-
   </footer>
 
   <script src="/assets/js/app.js" defer></script>
