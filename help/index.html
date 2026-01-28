@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help & Resources - Salvation Through Jesus</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <style>
         .help-hero {
             background: linear-gradient(135deg, #0f172a 0%, #1a2a4a 100%);
@@ -28,13 +30,80 @@
             line-height: 1.6;
         }
 
-        .resources-grid {
+        .map-container {
+            width: 100%;
+            height: 500px;
+            margin: 3rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(217, 119, 6, 0.3);
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-legend {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(26, 42, 74, 0.95));
+            padding: 1.5rem;
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            border-radius: 8px;
+            margin: 2rem auto;
+            max-width: 600px;
+            color: #d1d5db;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .legend-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        .resources-section {
+            padding: 3rem 2rem;
+        }
+
+        .resources-section h2 {
+            color: #d97706;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-group {
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .category-title {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(217, 119, 6, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-icon {
+            font-size: 1.8rem;
+        }
+
+        .resource-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            padding: 3rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .resource-card {
@@ -43,9 +112,6 @@
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
         }
 
         .resource-card::before {
@@ -56,6 +122,7 @@
             right: 0;
             height: 3px;
             background: linear-gradient(90deg, #d97706, #fbbf24);
+            border-radius: 12px 12px 0 0;
         }
 
         .resource-card:hover {
@@ -64,145 +131,124 @@
             transform: translateY(-5px);
         }
 
-        .resource-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
         .resource-card h3 {
             color: #fbbf24;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
+            margin-top: 0;
+            position: relative;
         }
 
-        .resource-category {
-            color: #d97706;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        .resource-details {
+        .resource-card p {
             color: #d1d5db;
             font-size: 0.95rem;
             line-height: 1.6;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
         }
 
-        .resource-details strong {
+        .resource-detail {
+            color: #d1d5db;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .resource-detail strong {
             color: #fbbf24;
-            display: block;
-            margin-top: 0.5rem;
         }
 
-        .resource-details a {
+        .resource-detail a {
             color: #60a5fa;
             text-decoration: none;
             word-break: break-all;
         }
 
-        .resource-details a:hover {
-            color: #93c5fd;
+        .resource-detail a:hover {
             text-decoration: underline;
         }
 
-        .qr-section {
-            background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(59, 130, 246, 0.1));
+        .hotline-section {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(59, 130, 246, 0.15));
             border: 2px solid rgba(217, 119, 6, 0.3);
             border-radius: 12px;
-            padding: 3rem 2rem;
+            padding: 2.5rem;
             text-align: center;
-            margin: 3rem 2rem;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 3rem auto;
         }
 
-        .qr-section h2 {
+        .hotline-section h2 {
             color: #d97706;
-            margin-bottom: 1.5rem;
+            margin-top: 0;
             font-size: 1.8rem;
         }
 
-        .qr-section p {
-            color: #d1d5db;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .qr-placeholder {
-            background: #0f172a;
-            border: 2px dashed rgba(217, 119, 6, 0.3);
-            border-radius: 8px;
-            padding: 2rem;
+        .hotline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin: 1.5rem 0;
-            color: #9ca3af;
-            font-size: 0.95rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #d97706, #f59e0b);
-            color: white;
-            padding: 1rem 2rem;
+        .hotline-card {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 1.5rem;
             border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
-            transform: scale(1.05);
-        }
-
-        .map-section {
-            padding: 3rem 2rem;
-            background: rgba(15, 23, 42, 0.5);
-        }
-
-        .map-section h2 {
-            color: #d97706;
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .map-info {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(26, 42, 74, 0.8));
             border: 1px solid rgba(217, 119, 6, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            color: #d1d5db;
         }
 
-        .hours {
-            color: #93c5fd;
-            font-size: 0.9rem;
+        .hotline-card strong {
+            display: block;
+            color: #fbbf24;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hotline-number {
+            color: #60a5fa;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .hotline-label {
+            color: #9ca3af;
+            font-size: 0.85rem;
             margin-top: 0.5rem;
         }
 
         @media (max-width: 768px) {
             .help-hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
-            .resources-grid {
+            .map-container {
+                height: 400px;
+            }
+
+            .resource-cards {
                 grid-template-columns: 1fr;
             }
 
-            .qr-section {
-                margin: 3rem 1rem;
+            .hotline-grid {
+                grid-template-columns: 1fr;
             }
+        }
+
+        .leaflet-popup-content-wrapper {
+            background: rgba(15, 23, 42, 0.95) !important;
+            border-radius: 8px !important;
+        }
+
+        .leaflet-popup-content {
+            color: #d1d5db !important;
+            font-size: 0.9rem;
+        }
+
+        .leaflet-popup-content strong {
+            color: #fbbf24;
+        }
+
+        .leaflet-popup-tip {
+            background: rgba(15, 23, 42, 0.95) !important;
         }
     </style>
 </head>
@@ -226,149 +272,260 @@
     <main>
         <section class="help-hero">
             <h1>🤝 Help & Resources</h1>
-            <p>You are not alone. This page connects you with real help in Bellingham and Whatcom County. Whether you need shelter, food, medical care, or someone to talk to—these resources are here for you.</p>
+            <p>You are not alone. This page connects you with real help in Bellingham and Whatcom County. Whether you need shelter, food, medical care, detox, or someone to talk to—these resources are here for you.</p>
         </section>
 
-        <section class="resources-grid">
-            <!-- Shelter & Housing -->
-            <div class="resource-card">
-                <div class="resource-icon">🏠</div>
-                <div class="resource-category">Shelter & Housing</div>
-                <h3>Lighthouse Mission</h3>
-                <div class="resource-details">
-                    <strong>Overnight Shelter & Meals</strong>
-                    Free overnight shelter and meals for anyone in need.
-                    <br><strong>Address:</strong> <a href="tel:">Contact 211</a>
-                    <br><strong>Phone:</strong> Call 211
-                    <br><span class="hours">Nightly, Year-round</span>
-                </div>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="map-container">
+                <div id="map"></div>
             </div>
 
-            <!-- Medical -->
-            <div class="resource-card">
-                <div class="resource-icon">⚕️</div>
-                <div class="resource-category">Health & Medical</div>
-                <h3>24-Hour Medical Detox</h3>
-                <div class="resource-details">
-                    <strong>Addiction Treatment & Medical Detoxification</strong>
-                    Safe medical detox with beds available for those ready to get help.
-                    <br><strong>Phone:</strong> Call 211 to connect
-                    <br><span class="hours">24/7 Available</span>
+            <div class="map-legend">
+                <div style="color: #fbbf24; font-weight: 600; margin-bottom: 1rem;">Map Legend</div>
+                <div class="legend-item">
+                    <div class="legend-icon">🏠</div>
+                    <div>Shelter & Housing</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon">💊</div>
+                    <div>Detox & Addiction Treatment</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon">🍽️</div>
+                    <div>Food & Meals</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon">⚕️</div>
+                    <div>Medical & Health</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon">💬</div>
+                    <div>Crisis & Support</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Crisis -->
-            <div class="resource-card">
-                <div class="resource-icon">📞</div>
-                <div class="resource-category">Mental Health & Crisis</div>
-                <h3>Crisis Support</h3>
-                <div class="resource-details">
-                    <strong>24/7 Crisis Line</strong>
-                    Call 988 to talk to someone immediately. Free, confidential, always available.
-                    <br><strong>Phone:</strong> <strong>988</strong>
-                    <br><span class="hours">24/7 · Available 365 Days/Year</span>
+        <section class="hotline-section">
+            <h2>🚨 CALL NOW - 24/7 HELP</h2>
+            <p style="color: #d1d5db; margin-bottom: 1.5rem;">Need help right now? These numbers are available 24 hours a day, 7 days a week.</p>
+            <div class="hotline-grid">
+                <div class="hotline-card">
+                    <strong>Medical Emergency</strong>
+                    <div class="hotline-number">911</div>
                 </div>
-            </div>
-
-            <!-- Food -->
-            <div class="resource-card">
-                <div class="resource-icon">🍽️</div>
-                <div class="resource-category">Food & Meals</div>
-                <h3>Food Banks & Meal Programs</h3>
-                <div class="resource-details">
-                    <strong>Bellingham Food Bank</strong>
-                    Free food assistance, groceries, and emergency meals.
-                    <br><strong>Info:</strong> Call 211
-                    <br><span class="hours">Multiple Locations</span>
+                <div class="hotline-card">
+                    <strong>Mental Health & Suicide</strong>
+                    <div class="hotline-number">988</div>
                 </div>
-            </div>
-
-            <!-- General Resources -->
-            <div class="resource-card">
-                <div class="resource-icon">☎️</div>
-                <div class="resource-category">General Information</div>
-                <h3>2-1-1 Whatcom</h3>
-                <div class="resource-details">
-                    <strong>Your Connection to Local Services</strong>
-                    Call or text 211 to connect with housing, food, medical, mental health, and more.
-                    <br><strong>Phone:</strong> <strong>211</strong> (call or text)
-                    <br><span class="hours">24/7 · Every Resource in the County</span>
+                <div class="hotline-card">
+                    <strong>Addiction Help</strong>
+                    <div class="hotline-number">988</div>
+                    <div class="hotline-label">Press option for substance use</div>
                 </div>
-            </div>
-
-            <!-- Job Training -->
-            <div class="resource-card">
-                <div class="resource-icon">💼</div>
-                <div class="resource-category">Employment & Skills</div>
-                <h3>Job Training & Support</h3>
-                <div class="resource-details">
-                    <strong>WorkSource Bellingham</strong>
-                    Free job training, resume help, and employment support.
-                    <br><strong>Info:</strong> Call 211
-                    <br><span class="hours">Career Counseling Available</span>
-                </div>
-            </div>
-
-            <!-- Hygiene -->
-            <div class="resource-card">
-                <div class="resource-icon">🚿</div>
-                <div class="resource-category">Hygiene & Wellness</div>
-                <h3>Hygiene & Shower Access</h3>
-                <div class="resource-details">
-                    <strong>Clean Facilities & Toiletries</strong>
-                    Safe places to shower, launder clothes, and access hygiene items.
-                    <br><strong>Info:</strong> Call 211 for locations
-                    <br><span class="hours">Various Locations</span>
-                </div>
-            </div>
-
-            <!-- ID & Documents -->
-            <div class="resource-card">
-                <div class="resource-icon">📋</div>
-                <div class="resource-category">Documents & Legal</div>
-                <h3>ID & Legal Assistance</h3>
-                <div class="resource-details">
-                    <strong>Getting Your Documents</strong>
-                    Help getting birth certificates, IDs, and legal aid.
-                    <br><strong>Info:</strong> Call 211
-                    <br><span class="hours">Legal Services Available</span>
+                <div class="hotline-card">
+                    <strong>Any Resource</strong>
+                    <div class="hotline-number">211</div>
+                    <div class="hotline-label">Call or text for any service</div>
                 </div>
             </div>
         </section>
 
-        <section class="map-section">
-            <h2>📍 Find Services Near You</h2>
-            <div class="map-info">
-                <p><strong>All services listed above are in or near Bellingham, WA.</strong></p>
-                <p>For exact addresses and to find more services in your area, <strong>call 211</strong> or visit their website. They know every resource in Whatcom County.</p>
-                <p style="margin-top: 1rem; color: #93c5fd;">The 211 team can also tell you about services in Seattle and surrounding areas if you need to travel.</p>
-            </div>
-        </section>
+        <section class="resources-section">
+            <h2>Resources by Category</h2>
 
-        <section class="qr-section">
-            <h2>📱 Share This Page</h2>
-            <p>Take a screenshot of this page, or save it to your phone. You can also print it or give it to someone you know who needs help.</p>
-            
-            <p style="font-size: 0.9rem; color: #9ca3af;">
-                Want a QR code for business cards? Use an online QR code generator with this URL:
-            </p>
-            <div class="qr-placeholder">
-                https://salvationthroughjesus.org/help/
+            <!-- FIRST CONTACT -->
+            <div class="category-group">
+                <div class="category-title">
+                    <span class="category-icon">🎯</span>
+                    First Point of Contact
+                </div>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <h3>Opportunity Council</h3>
+                        <p>Your starting point for all services. They can connect you to housing, shelter, food, and more.</p>
+                        <div class="resource-detail"><strong>📍 Address:</strong> 1111 Cornwall Ave, Bellingham, WA</div>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3607345121">360-734-5121</a></div>
+                        <div class="resource-detail"><strong>⏰ Hours:</strong> Monday-Thursday, 9am-4pm</div>
+                        <div class="resource-detail"><strong>🌐 Website:</strong> <a href="https://oppco.org/whsc" target="_blank">oppco.org/whsc</a></div>
+                    </div>
+                </div>
             </div>
 
-            <p style="color: #d1d5db; margin-top: 2rem;">
-                <strong>Share the link above. It could save a life.</strong>
-            </p>
+            <!-- SHELTER -->
+            <div class="category-group">
+                <div class="category-title">
+                    <span class="category-icon">🏠</span>
+                    Shelter & Housing
+                </div>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <h3>Lighthouse Mission</h3>
+                        <p>Overnight shelter, meals, showers, and laundry. Open every night.</p>
+                        <div class="resource-detail"><strong>📍 Base Camp:</strong> 1312 F Street, Bellingham, WA 98225</div>
+                        <div class="resource-detail"><strong>📍 Main Office:</strong> 910 W. Holly Street</div>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3606711562">360-671-1562</a></div>
+                        <div class="resource-detail"><strong>📞 Main:</strong> <a href="tel:3607335120">360-733-5120</a></div>
+                        <div class="resource-detail"><strong>📧 Email:</strong> <a href="mailto:email@thelighthousemission.org">email@thelighthousemission.org</a></div>
+                        <div class="resource-detail"><strong>🌐 Website:</strong> <a href="https://thelighthousemission.org" target="_blank">thelighthousemission.org</a></div>
+                        <div class="resource-detail"><strong>⏰ Hours:</strong> Open nightly, year-round</div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>YWCA Family Shelter</h3>
+                        <p>Shelter for women and families with children.</p>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3607344820">360-734-4820</a> or <a href="tel:3602552091">360-255-2091</a></div>
+                        <div class="resource-detail"><strong>🌐 Website:</strong> <a href="https://ywcabellingham.org" target="_blank">ywcabellingham.org</a></div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Northwest Youth Services</h3>
+                        <p><strong>The PAD</strong> - Emergency shelter for teens ages 13-17.</p>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3603930116">360-393-0116</a> (24 hours)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETOX & ADDICTION -->
+            <div class="category-group">
+                <div class="category-title">
+                    <span class="category-icon">💊</span>
+                    Detox & Addiction Treatment
+                </div>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <h3>Whatcom Community Detox</h3>
+                        <p><strong>24/7 Acute Medical Detoxification</strong> - Safe medical detox with 16 beds available. Walk-ins welcome or call to get on the list.</p>
+                        <div class="resource-detail"><strong>📍 Address:</strong> 2026 Division Street, Bellingham, WA 98226</div>
+                        <div class="resource-detail"><strong>📞 Main Phone:</strong> <a href="tel:3608127220">360-812-7220</a></div>
+                        <div class="resource-detail"><strong>📞 Alt Phone:</strong> <a href="tel:3606762020">360-676-2020</a> ext. 5</div>
+                        <div class="resource-detail"><strong>📞 MAT Program:</strong> <a href="tel:3604104168">360-410-4168</a></div>
+                        <div class="resource-detail"><strong>🌐 Website:</strong> <a href="https://pioneerhumanservices.org/treatment/whatcom-community-detox" target="_blank">Pioneer Human Services</a></div>
+                        <div class="resource-detail"><strong>⏰ Hours:</strong> Open 24/7, 7 days a week</div>
+                        <div class="resource-detail"><strong>Services:</strong> Detox from alcohol and drugs, ASAM level 3.7 care</div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Comprehensive Treatment Center</h3>
+                        <p>Outpatient addiction treatment services.</p>
+                        <div class="resource-detail"><strong>📍 Address:</strong> 3240 Northwest Ave., Bellingham, WA 98225</div>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:8557599870">855-759-9870</a></div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>CCS NW Recovery Centers</h3>
+                        <p>Recovery and addiction treatment services.</p>
+                        <div class="resource-detail"><strong>📍 Address:</strong> 515 Lakeway Drive, Bellingham, WA 98225</div>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3606762164">360-676-2164</a></div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Belair Clinic</h3>
+                        <p>Treatment and counseling services.</p>
+                        <div class="resource-detail"><strong>📍 Address:</strong> 1130 North State Street, Bellingham, WA 98225</div>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3606764485">360-676-4485</a></div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Dillard Recovery</h3>
+                        <p>Recovery program in Bellingham.</p>
+                        <div class="resource-detail"><strong>📍 Address:</strong> 11th St, Bellingham, WA 98225</div>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3602853917">360-285-3917</a></div>
+                        <div class="resource-detail"><strong>🌐 Website:</strong> <a href="https://dillardrecovery.com/locations/washington/bellingham" target="_blank">dillardrecovery.com</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOD -->
+            <div class="category-group">
+                <div class="category-title">
+                    <span class="category-icon">🍽️</span>
+                    Food & Meals
+                </div>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <h3>Lighthouse Mission</h3>
+                        <p>Free daily meals at Base Camp location.</p>
+                        <div class="resource-detail"><strong>📍 Location:</strong> 1312 F Street, Bellingham</div>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3606711562">360-671-1562</a></div>
+                        <div class="resource-detail"><strong>⏰ Hours:</strong> Daily</div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Bellingham Food Bank</h3>
+                        <p>Free food assistance and groceries for those in need.</p>
+                        <div class="resource-detail"><strong>📞 Info:</strong> <a href="tel:211">Call 211</a></div>
+                        <div class="resource-detail"><strong>📍 Multiple locations</strong> throughout Bellingham</div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Community Meal Programs</h3>
+                        <p>Multiple soup kitchens and community meals throughout Bellingham.</p>
+                        <div class="resource-detail"><strong>📞 Find locations:</strong> <a href="tel:211">Call 211</a> for current locations and hours</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRISIS & SUPPORT -->
+            <div class="category-group">
+                <div class="category-title">
+                    <span class="category-icon">💬</span>
+                    Crisis & Mental Health Support
+                </div>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <h3>24-Hour Crisis Support</h3>
+                        <p>Call 988 to talk to someone immediately about mental health, suicidal thoughts, or addiction.</p>
+                        <div class="resource-detail"><strong>📞 Call or Text:</strong> <a href="tel:988">988</a> (Free, confidential, 24/7)</div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Homeless Outreach Team</h3>
+                        <p>Street outreach and mobile crisis support.</p>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3603123717">360-312-3717</a></div>
+                        <div class="resource-detail"><strong>⏰ Hours:</strong> Mon/Fri 7am-5pm, Tue-Thu 7am-8pm</div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>VOA Crisis/Mobile Crisis Team</h3>
+                        <p>Crisis intervention and mobile support.</p>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:1-800-584-3578">1-800-584-3578</a></div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Domestic Violence Hotline</h3>
+                        <p>24-hour support if you're experiencing domestic violence.</p>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:1-877-715-1563">1-877-715-1563</a> (24/7)</div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Downtown Ambassadors</h3>
+                        <p>Community support and outreach in downtown Bellingham.</p>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3602201156">360-220-1156</a></div>
+                        <div class="resource-detail"><strong>⏰ Hours:</strong> 8am-5pm</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GENERAL RESOURCES -->
+            <div class="category-group">
+                <div class="category-title">
+                    <span class="category-icon">⚕️</span>
+                    Health & General Services
+                </div>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <h3>Lummi Counseling Services</h3>
+                        <p>Counseling and support services.</p>
+                        <div class="resource-detail"><strong>📍 Address:</strong> 2616 Kwina Road, Bellingham, WA 98226</div>
+                        <div class="resource-detail"><strong>📞 Phone:</strong> <a href="tel:3603122420">360-312-2420</a></div>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Whatcom County Health Services</h3>
+                        <p>County health services, substance use resources, behavioral health.</p>
+                        <div class="resource-detail"><strong>🌐 Website:</strong> <a href="https://whatcomcounty.us" target="_blank">whatcomcounty.us</a></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section style="padding: 3rem 2rem; text-align: center; background: rgba(217, 119, 6, 0.05); border-top: 1px solid rgba(217, 119, 6, 0.2);">
-            <h2 style="color: #d97706; margin-bottom: 1.5rem;">In Crisis Right Now?</h2>
-            <div style="font-size: 1.2rem; color: #d1d5db; margin-bottom: 2rem;">
-                <p style="margin: 0.5rem 0;"><strong style="color: #fbbf24;">Call 988</strong> - Suicide & Crisis Lifeline (Free, 24/7)</p>
-                <p style="margin: 0.5rem 0;"><strong style="color: #fbbf24;">Text 211</strong> - Resource Connection (24/7)</p>
-                <p style="margin: 0.5rem 0;"><strong style="color: #fbbf24;">Call 911</strong> - Emergency Medical (Life-threatening)</p>
-            </div>
-            <a href="/" class="cta-button">Back to Home</a>
+            <h2 style="color: #d97706; margin-bottom: 1.5rem;">Questions? Call 211</h2>
+            <p style="color: #d1d5db; font-size: 1.1rem; margin-bottom: 1rem;">
+                <strong>211 Whatcom</strong> is your master resource hotline. <br/>
+                They know every service in the county and can connect you to what you need.
+            </p>
+            <p style="color: #d1d5db; font-size: 1.3rem; font-weight: 600; margin: 2rem 0;">
+                📞 <a href="tel:211" style="color: #60a5fa; text-decoration: none;">Call or Text 211</a> • 24/7
+            </p>
+            <a href="/" class="cta-button" style="display: inline-block; background: linear-gradient(135deg, #d97706, #f59e0b); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; border: none; cursor: pointer; font-size: 1rem;">Back to Home</a>
         </section>
     </main>
 
@@ -386,5 +543,115 @@
             <p>&copy; 2026 Salvation Through Jesus. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Initialize map centered on Bellingham
+        const map = L.map('map').setView([48.7519, -122.4787], 12);
+
+        // Add map tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19,
+            tileSize: 256
+        }).addTo(map);
+
+        // Define marker colors and icons by category
+        const categories = {
+            shelter: { emoji: '🏠', color: '#10b981' },
+            detox: { emoji: '💊', color: '#f59e0b' },
+            food: { emoji: '🍽️', color: '#8b5cf6' },
+            crisis: { emoji: '💬', color: '#ef4444' },
+            health: { emoji: '⚕️', color: '#3b82f6' }
+        };
+
+        // Locations with coordinates
+        const locations = [
+            {
+                name: 'Opportunity Council',
+                category: 'crisis',
+                lat: 48.7588,
+                lng: -122.4858,
+                details: '1111 Cornwall Ave<br/>360-734-5121<br/>Mon-Thu 9am-4pm'
+            },
+            {
+                name: 'Lighthouse Mission Base Camp',
+                category: 'shelter',
+                lat: 48.7450,
+                lng: -122.4920,
+                details: '1312 F Street<br/>360-671-1562<br/>Open nightly'
+            },
+            {
+                name: 'Whatcom Community Detox',
+                category: 'detox',
+                lat: 48.7612,
+                lng: -122.4567,
+                details: '2026 Division Street<br/>360-812-7220<br/>Open 24/7'
+            },
+            {
+                name: 'YWCA Family Shelter',
+                category: 'shelter',
+                lat: 48.7520,
+                lng: -122.4900,
+                details: '360-734-4820<br/>Women & Families'
+            },
+            {
+                name: 'Comprehensive Treatment Center',
+                category: 'detox',
+                lat: 48.7634,
+                lng: -122.5034,
+                details: '3240 Northwest Ave<br/>855-759-9870'
+            },
+            {
+                name: 'CCS NW Recovery Centers',
+                category: 'detox',
+                lat: 48.7456,
+                lng: -122.4678,
+                details: '515 Lakeway Drive<br/>360-676-2164'
+            },
+            {
+                name: 'Bellingham Food Bank',
+                category: 'food',
+                lat: 48.7500,
+                lng: -122.4750,
+                details: 'Multiple locations<br/>Call 211 for info'
+            },
+            {
+                name: 'Lummi Counseling Services',
+                category: 'health',
+                lat: 48.7620,
+                lng: -122.3950,
+                details: '2616 Kwina Road<br/>360-312-2420'
+            }
+        ];
+
+        // Add markers to map
+        locations.forEach(location => {
+            const cat = categories[location.category];
+            
+            // Create custom HTML for marker
+            const markerHtml = `<div style="font-size: 28px; cursor: pointer;">${cat.emoji}</div>`;
+            
+            const customIcon = L.divIcon({
+                html: markerHtml,
+                className: 'custom-marker',
+                iconSize: [40, 40],
+                popupAnchor: [0, -20]
+            });
+
+            const marker = L.marker([location.lat, location.lng], { icon: customIcon })
+                .addTo(map)
+                .bindPopup(`<div style="min-width: 250px;">
+                    <h3 style="color: #fbbf24; margin-top: 0;">${location.name}</h3>
+                    <p style="margin: 0.5rem 0; color: #d1d5db;">${location.details}</p>
+                </div>`);
+        });
+
+        // Style popup
+        map.on('popupopen', function() {
+            document.querySelectorAll('.leaflet-popup').forEach(popup => {
+                popup.style.backgroundColor = 'transparent';
+            });
+        });
+    </script>
 </body>
 </html>
