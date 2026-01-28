@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Resources - Salvation Through Jesus</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .help-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1a2a4a 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(217, 119, 6, 0.3);
+        }
+
+        .help-hero h1 {
+            color: #d97706;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .help-hero p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(26, 42, 74, 0.8));
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d97706, #fbbf24);
+        }
+
+        .resource-card:hover {
+            border-color: rgba(217, 119, 6, 0.5);
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h3 {
+            color: #fbbf24;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-category {
+            color: #d97706;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .resource-details {
+            color: #d1d5db;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+
+        .resource-details strong {
+            color: #fbbf24;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .resource-details a {
+            color: #60a5fa;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .resource-details a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        .qr-section {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(59, 130, 246, 0.1));
+            border: 2px solid rgba(217, 119, 6, 0.3);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .qr-section h2 {
+            color: #d97706;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .qr-section p {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .qr-placeholder {
+            background: #0f172a;
+            border: 2px dashed rgba(217, 119, 6, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
+            transform: scale(1.05);
+        }
+
+        .map-section {
+            padding: 3rem 2rem;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .map-section h2 {
+            color: #d97706;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .map-info {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(26, 42, 74, 0.8));
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            color: #d1d5db;
+        }
+
+        .hours {
+            color: #93c5fd;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .help-hero h1 {
+                font-size: 2rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .qr-section {
+                margin: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="/assets/img/logo.svg" alt="Salvation Through Jesus" width="48" height="48" />
+                <span>Help & Resources</span>
+            </div>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/mission/">Mission</a>
+                <a href="/action/">Action</a>
+                <a href="/help/" class="active">Help</a>
+                <a href="/donate/" class="btn-nav-donate">Donate</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="help-hero">
+            <h1>🤝 Help & Resources</h1>
+            <p>You are not alone. This page connects you with real help in Bellingham and Whatcom County. Whether you need shelter, food, medical care, or someone to talk to—these resources are here for you.</p>
+        </section>
+
+        <section class="resources-grid">
+            <!-- Shelter & Housing -->
+            <div class="resource-card">
+                <div class="resource-icon">🏠</div>
+                <div class="resource-category">Shelter & Housing</div>
+                <h3>Lighthouse Mission</h3>
+                <div class="resource-details">
+                    <strong>Overnight Shelter & Meals</strong>
+                    Free overnight shelter and meals for anyone in need.
+                    <br><strong>Address:</strong> <a href="tel:">Contact 211</a>
+                    <br><strong>Phone:</strong> Call 211
+                    <br><span class="hours">Nightly, Year-round</span>
+                </div>
+            </div>
+
+            <!-- Medical -->
+            <div class="resource-card">
+                <div class="resource-icon">⚕️</div>
+                <div class="resource-category">Health & Medical</div>
+                <h3>24-Hour Medical Detox</h3>
+                <div class="resource-details">
+                    <strong>Addiction Treatment & Medical Detoxification</strong>
+                    Safe medical detox with beds available for those ready to get help.
+                    <br><strong>Phone:</strong> Call 211 to connect
+                    <br><span class="hours">24/7 Available</span>
+                </div>
+            </div>
+
+            <!-- Crisis -->
+            <div class="resource-card">
+                <div class="resource-icon">📞</div>
+                <div class="resource-category">Mental Health & Crisis</div>
+                <h3>Crisis Support</h3>
+                <div class="resource-details">
+                    <strong>24/7 Crisis Line</strong>
+                    Call 988 to talk to someone immediately. Free, confidential, always available.
+                    <br><strong>Phone:</strong> <strong>988</strong>
+                    <br><span class="hours">24/7 · Available 365 Days/Year</span>
+                </div>
+            </div>
+
+            <!-- Food -->
+            <div class="resource-card">
+                <div class="resource-icon">🍽️</div>
+                <div class="resource-category">Food & Meals</div>
+                <h3>Food Banks & Meal Programs</h3>
+                <div class="resource-details">
+                    <strong>Bellingham Food Bank</strong>
+                    Free food assistance, groceries, and emergency meals.
+                    <br><strong>Info:</strong> Call 211
+                    <br><span class="hours">Multiple Locations</span>
+                </div>
+            </div>
+
+            <!-- General Resources -->
+            <div class="resource-card">
+                <div class="resource-icon">☎️</div>
+                <div class="resource-category">General Information</div>
+                <h3>2-1-1 Whatcom</h3>
+                <div class="resource-details">
+                    <strong>Your Connection to Local Services</strong>
+                    Call or text 211 to connect with housing, food, medical, mental health, and more.
+                    <br><strong>Phone:</strong> <strong>211</strong> (call or text)
+                    <br><span class="hours">24/7 · Every Resource in the County</span>
+                </div>
+            </div>
+
+            <!-- Job Training -->
+            <div class="resource-card">
+                <div class="resource-icon">💼</div>
+                <div class="resource-category">Employment & Skills</div>
+                <h3>Job Training & Support</h3>
+                <div class="resource-details">
+                    <strong>WorkSource Bellingham</strong>
+                    Free job training, resume help, and employment support.
+                    <br><strong>Info:</strong> Call 211
+                    <br><span class="hours">Career Counseling Available</span>
+                </div>
+            </div>
+
+            <!-- Hygiene -->
+            <div class="resource-card">
+                <div class="resource-icon">🚿</div>
+                <div class="resource-category">Hygiene & Wellness</div>
+                <h3>Hygiene & Shower Access</h3>
+                <div class="resource-details">
+                    <strong>Clean Facilities & Toiletries</strong>
+                    Safe places to shower, launder clothes, and access hygiene items.
+                    <br><strong>Info:</strong> Call 211 for locations
+                    <br><span class="hours">Various Locations</span>
+                </div>
+            </div>
+
+            <!-- ID & Documents -->
+            <div class="resource-card">
+                <div class="resource-icon">📋</div>
+                <div class="resource-category">Documents & Legal</div>
+                <h3>ID & Legal Assistance</h3>
+                <div class="resource-details">
+                    <strong>Getting Your Documents</strong>
+                    Help getting birth certificates, IDs, and legal aid.
+                    <br><strong>Info:</strong> Call 211
+                    <br><span class="hours">Legal Services Available</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <h2>📍 Find Services Near You</h2>
+            <div class="map-info">
+                <p><strong>All services listed above are in or near Bellingham, WA.</strong></p>
+                <p>For exact addresses and to find more services in your area, <strong>call 211</strong> or visit their website. They know every resource in Whatcom County.</p>
+                <p style="margin-top: 1rem; color: #93c5fd;">The 211 team can also tell you about services in Seattle and surrounding areas if you need to travel.</p>
+            </div>
+        </section>
+
+        <section class="qr-section">
+            <h2>📱 Share This Page</h2>
+            <p>Take a screenshot of this page, or save it to your phone. You can also print it or give it to someone you know who needs help.</p>
+            
+            <p style="font-size: 0.9rem; color: #9ca3af;">
+                Want a QR code for business cards? Use an online QR code generator with this URL:
+            </p>
+            <div class="qr-placeholder">
+                https://salvationthroughjesus.org/help/
+            </div>
+
+            <p style="color: #d1d5db; margin-top: 2rem;">
+                <strong>Share the link above. It could save a life.</strong>
+            </p>
+        </section>
+
+        <section style="padding: 3rem 2rem; text-align: center; background: rgba(217, 119, 6, 0.05); border-top: 1px solid rgba(217, 119, 6, 0.2);">
+            <h2 style="color: #d97706; margin-bottom: 1.5rem;">In Crisis Right Now?</h2>
+            <div style="font-size: 1.2rem; color: #d1d5db; margin-bottom: 2rem;">
+                <p style="margin: 0.5rem 0;"><strong style="color: #fbbf24;">Call 988</strong> - Suicide & Crisis Lifeline (Free, 24/7)</p>
+                <p style="margin: 0.5rem 0;"><strong style="color: #fbbf24;">Text 211</strong> - Resource Connection (24/7)</p>
+                <p style="margin: 0.5rem 0;"><strong style="color: #fbbf24;">Call 911</strong> - Emergency Medical (Life-threatening)</p>
+            </div>
+            <a href="/" class="cta-button">Back to Home</a>
+        </section>
+    </main>
+
+    <footer class="footer-modern">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="/assets/img/logo.svg" alt="Salvation Through Jesus" width="48" height="48" />
+                <p class="footer-tagline">Calming the storm. One life at a time.</p>
+            </div>
+        </div>
+        <div class="footer-memorial">
+            <p>In loving memory of Devin. Your life calls us to love without hesitation.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Salvation Through Jesus. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
