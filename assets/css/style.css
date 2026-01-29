@@ -1405,6 +1405,95 @@ li {
 }
 
 /* ========================================
+   DONORS SECTION
+   ======================================== */
+.donors-section {
+  padding: var(--gutter-block) var(--gutter-inline);
+  background: linear-gradient(135deg, rgba(13, 26, 48, 0.8) 0%, rgba(11, 21, 38, 0.8) 100%);
+  border-top: 1px solid rgba(214, 183, 111, 0.2);
+  border-bottom: 1px solid rgba(214, 183, 111, 0.2);
+}
+
+.donors-section h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+.donors-section > .container > p:first-of-type {
+  text-align: center;
+  color: rgba(246, 247, 251, 0.85);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.donors-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.donor-card {
+  background: rgba(214, 183, 111, 0.08);
+  border: 1px solid rgba(214, 183, 111, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.donor-card:hover {
+  background: rgba(214, 183, 111, 0.15);
+  border-color: rgba(214, 183, 111, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(214, 183, 111, 0.2);
+}
+
+.donor-heart {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.donor-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.donor-location {
+  color: rgba(246, 247, 251, 0.7);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.donors-message {
+  text-align: center;
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ========================================
    RESPONSIVE
    ======================================== */
 @media (max-width: 767px) {
@@ -1446,6 +1535,18 @@ li {
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .donors-container {
+    grid-template-columns: 1fr;
+  }
+
+  .donor-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .donor-name {
+    font-size: 1.3rem;
   }
 }
 
